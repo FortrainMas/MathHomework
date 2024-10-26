@@ -1,6 +1,52 @@
 $blood-color: #780606;
 
 
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    button{
+        min-width: 250px;
+        max-width: 400px;
+        width: 100%;
+        background-color: #fff;
+        color: $blood-color;
+        border-radius: 11px;
+        border: 2px solid $blood-color;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    :nth-child(2){
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+
+        button{
+            width: 100%;
+            min-width: unset;
+            background-color: #fff;
+            color: $blood-color;
+            border-radius: 11px;
+            border: 2px solid $blood-color;
+            padding: 5px;
+            font-size: 25px !important;
+            cursor: pointer;
+        }
+
+
+        :nth-child(2){
+            margin: 0px;
+        }
+    }
+}
+
 .wrapper {
     min-width: 100%;
     width: 100vw;
@@ -9,6 +55,11 @@ $blood-color: #780606;
     justify-content: flex-end;
 
     background: url("./src/shared/assets/background/dvor.jpg")  no-repeat center center/cover;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 }
 
 

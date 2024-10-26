@@ -32,11 +32,11 @@ export const TasksPage: FC<TasksPageProps> = () => {
     // @ts-ignore
     return (
         <div className={styles.wrapper}>
-
-            <div>ВРЕМЕННЫЕ ССЫЛКИ</div>
-            <div><button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button></div>
-            <div><button style={{fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button></div>
-            <div><button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button></div>
+            <div className={styles.container}>
+                <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
+                <button style={{fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
+                <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button>
+            </div>
             <div className={styles.listOfTasks}>
                 <div className={styles.header}>
                     <p className={styles.switchText}>Выбери этап</p>
