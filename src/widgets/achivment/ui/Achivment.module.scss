@@ -1,0 +1,30 @@
+.achivment{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(255, 199 , 0, 0.1);
+  border-radius: 11px;
+  margin-bottom: 10px;
+}
+.header{
+  color: #ffffff;
+  font-family: "PT Mono";
+  font-size: 20px;
+  font-weight: 100;
+  width: 300px;
+  word-wrap: break-word;
+}
+
+.achievmentImage {
+  height: 40px;
+  border-radius: 5px;
+}
+
+.icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 11px;
+  border:rgb(255, 255, 255) solid 2px;
+}

@@ -1,0 +1,42 @@
+.cunt{
+  display: flex;
+  align-items: center;
+  border:rgb(255, 255, 255) solid 2px;
+  border-radius: 11px;
+  padding: calc(2%);
+  margin: 10px;
+  width: 98%;
+}
+.nick, .balance, .email{
+  font-size: 30px;
+  font-family: 'Antique';
+  word-break: break-all;
+}
+.nick{
+  width: 35%;
+  margin: 10px;
+
+}
+.balance{
+  margin: 10px;
+  margin-left: 50px;
+  width: 15%;
+}
+.email{
+  width: 40%;
+  // margin-right: 20px;
+}
+.butt{
+  width: 10%;
+  padding: 3px;
+  margin: 4px;
+  align-self: center;
+  background-color: rgba(255, 199 , 0, 0.1);
+  border:rgb(255, 255, 255) solid 2px;
+  border-radius: 11px;
+  color: #fff;
+  height: 70%;
+  font-family: 'pixy';
+  font-size: 25px;
+  cursor: pointer;
+}

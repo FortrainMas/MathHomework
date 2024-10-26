@@ -1,0 +1,84 @@
+.light{
+  background: none;
+  color: #FFC700;
+  text-shadow: 0 0 20px #FFC700;
+}
+// .regText{
+//   color: #ffffff;
+// }
+.fullProfile{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.editIcon {
+  height: 30px !important;
+  width: 30px !important;
+  cursor: pointer;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.popover {
+    font-family: "PT Mono" !important;
+    color: #FFC700;
+
+}
+
+.ava{
+  width: 141px;
+  height: 141px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    border-radius: 11px;
+    border:rgb(255, 255, 255) solid 3px;
+  }
+}
+.nick, .team, .balance {
+  color: #FFC700;
+  font-family: 'tickingBomb';
+  font-size: 64px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.level, .currentTeam, .currentBalance {
+  font-family: 'tickingBomb';
+  color: #ffffff;
+  
+  font-size: 48px;
+  
+  text-decoration: none;
+}
+.teamName {
+  font-size: 32px;
+  height: 48px;
+  font-family: tickingBombRus;
+  margin-top: 10px;
+  margin-left: 4px;
+}
+
+.line{
+  width: 52px;
+  height: 3px;
+  background-color: #ffffff;
+}
+.profileItem{
+  margin: 0 3% 0;
+}
+.withoutDickPick{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.dickPick{
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}

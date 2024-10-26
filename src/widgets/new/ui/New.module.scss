@@ -1,0 +1,30 @@
+$blood-color: #780606;
+
+.new{
+  margin-top: 20px;
+  width: 96.5%;
+  padding: 25px 25px;
+  font-family: 'Antique' !important;
+  font-size: 40px;
+  border-radius: 11px;
+  border:rgb(255, 255, 255) solid 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.new:hover{
+  color: #FFC700
+}
+.header{
+  text-transform: uppercase;
+  font-family: "Antique", serif !important;
+  text-align: left;
+  text-decoration: none;
+  color: $blood-color;
+
+}
+
+.main{
+  color: #000;
+  font-size: 24px;
+  font-family: "Antique",'serif' !important;
+
+}

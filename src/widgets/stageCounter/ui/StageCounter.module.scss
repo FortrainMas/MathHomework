@@ -1,0 +1,44 @@
+$blood-color: #780606;
+
+.stageSquare{
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 10px;
+  font-family: 'pixy';
+  border-radius: 11px;
+  border:rgb(255, 255, 255) solid 2px;
+  background-color: #fff;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 100;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.locked {
+  border: #a1a1a1 solid 2px;
+  cursor: not-allowed;
+}
+
+.stageText{
+  text-decoration: none;
+  color: $blood-color;
+  font-family: 'Antique', 'serif';
+  font-size: 24px;
+}
+
+.active {
+  border: #fff solid 2px;
+  background-color: $blood-color;
+
+  .stageText{
+    color: #fff;
+  }
+}

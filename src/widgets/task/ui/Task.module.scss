@@ -1,0 +1,73 @@
+$blood-color: #780606;
+
+.taskHeader{
+  * {
+    color: #fff;
+    font-size: 2.5rem;
+    text-decoration: none !important;
+    font-family: "Antique";
+  }
+
+  color: $blood-color;
+  font-size: 2.5rem;
+  text-decoration: none !important;
+  font-family: "Antique";
+
+  a {
+    text-decoration: none !important;
+  }
+}
+.taskDescription{
+  align-self: flex-start;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-family: 'serif';
+}
+.taskPrice{
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-family: 'Antique', 'serif';
+  margin-top: 10px;
+}
+.hr {
+  margin: 7px 0 10px 0;
+  width: 100% !important;
+}
+
+.taskStatus{
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Antique', 'serif';
+}
+.task{
+  border-radius: 11px;
+  border:rgb(255, 255, 255) solid 2px;
+  margin: 10px;
+  padding: 20px;
+  width: 96%;
+  border-radius: 11px;
+  // background-color: rgba(255, 199 , 0, 0.1);
+  background-color: rgba(244, 243, 241, 0.553);
+
+  display: flex;
+}
+.taskImg{
+  border-radius: 11px;
+  border:rgb(255, 255, 255) solid 3px;
+  width: 157px;
+  height: 157px;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.container span{
+  font-family: 'Antique', 'serif';
+  font-size: 30px;
+  color: $blood-color;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

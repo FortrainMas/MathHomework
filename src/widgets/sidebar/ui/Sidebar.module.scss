@@ -1,0 +1,44 @@
+.optionList{
+  list-style: none;
+  color: #ffffff;
+  font-size: 64px;
+  font-family: "tickingBombRus";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+NavLink{
+  font-family: "tickingBombRus";
+}
+
+.optionListItem{
+  font-family: "tickingBombRus" !important;
+  color: #ffffff !important;
+  a {
+    color: #ffffff !important;
+    font-weight: 100 !important;
+    text-decoration: none;
+    font-family: "tickingBombRus";
+
+  }
+
+  margin-bottom: 5vh;
+}
+
+li{
+  font-family: "tickingBombRus";
+}
+.active {
+  color: #FFC700;
+  text-shadow: 0 0 20px #FFC700;
+}
+
+.optionListItem:hover, a:hover{
+  // font-family: "tickingBombRus";
+  background: none;
+  color: #FFC700;
+  text-shadow: 0 0 20px #FFC700;
+  cursor: pointer;
+}

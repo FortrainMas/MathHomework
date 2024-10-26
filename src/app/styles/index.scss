@@ -1,0 +1,67 @@
+@import "reset";
+
+@font-face {
+  font-family: 'tickingBomb';
+  src: url('/src/shared/assets/fonts/TickingTimebombBb.ttf');
+}
+
+@font-face {
+  font-family: 'tickingBombRus';
+  src: url('/src/shared/assets/fonts/17320.OTF');
+}
+
+@font-face {
+  font-family: 'futureFont';
+  src: url('/src/shared/assets/fonts/mikratos.ttf');
+}
+@font-face {
+  font-family: 'pixy';
+  src: url('/src/shared/assets/fonts/PIXY.ttf');
+}
+
+@font-face {
+  font-family: 'PT Mono';
+  src: url('/src/shared/assets/fonts/PTMONO-REGULAR.TTF');
+}
+
+@font-face {
+  font-family: 'Title';
+  src: url('/src/shared/assets/fonts/17320.OTF');
+}
+
+@font-face {
+  font-family: 'Antique';
+  src: url('/src/shared/assets/fonts/1488-font.OTF');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  background: url("/src/shared/assets/background/dvor.jpg") center center no-repeat  fixed;
+  background-size: cover;
+  background-color: black;
+  height: 100%;
+  color: #fff;
+  overflow: hidden;
+}
+
+* {
+  font-family: 'PT mono', serif;
+}
+
+.Toastify__toast-container {
+  * {
+    font-family: "PT Mono" !important;
+  }
+}
+
+.Toastify__toast-theme--dark {
+  font-family: "tickingBombRus";
+  //border:rgb(255, 255, 255) solid 3px;
+  background-color: rgba(255, 199 , 0, 0.2) !important;
+
+}
+
+.Toastify__progress-bar-theme--dark {
+  background-color: #FFC700 !important;
+}
