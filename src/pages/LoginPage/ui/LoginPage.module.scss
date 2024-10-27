@@ -9,9 +9,14 @@ $blood-color: #780606;
 .authLoginSquare{
   font-size: 48px;
   margin-left: 10px;
-  width: 394px;
+  width: 100%;
+  max-width: 348px;
   height: 55px;
   outline:none;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 }
 .authLogin, .authPassword{
   margin: 10px 0;

@@ -8,10 +8,12 @@ $blood-color: #780606;
 }
 .authLoginSquare{
   font-size: 48px;
-  margin-left: 10px;
-  width: 394px;
   height: 55px;
   outline:none;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 }
 .authLogin, .authPassword{
   margin: 10px 0;
@@ -29,7 +31,7 @@ $blood-color: #780606;
 }
 
 .authLoginButton{
-  width: 40%;
+  width: 50%;
   display: inline-block;
   margin: 3%;
   border-radius: 11px;
@@ -48,13 +50,18 @@ $blood-color: #780606;
   font-weight: 100;
   font-size: 20px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .authLoginSquare{
   margin-right: 30px;
   color: $blood-color;
   font-size: 48px;
-  width: 450px;
+  width: 100%;
+  max-width: 348px;
   padding: 30px;
   border-radius: 11px;
   border:$blood-color solid 3px;

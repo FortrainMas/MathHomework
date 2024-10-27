@@ -6,7 +6,6 @@ $blood-color: #780606;
 
 .authLoginSquare{
   font-size: 48px;
-  margin-left: 10px;
   width: 394px;
   height: 55px;
   outline:none;
@@ -54,11 +53,16 @@ $blood-color: #780606;
   margin-right: 30px;
   color: $blood-color;
   font-size: 48px;
-  width: 450px;
+  max-width: 450px;
+  width: 100%;
   padding: 30px;
   border-radius: 11px;
   border:$blood-color solid 3px;
   background-color: #fff;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 }
 
 
