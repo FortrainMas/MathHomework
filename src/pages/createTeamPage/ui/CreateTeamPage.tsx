@@ -6,7 +6,11 @@ import {
     getInvitationsThunk,
     inviteUserThunk,
 } from 'src/entities/Team/teamThunks.ts';
+import {
+    getStageInfoThunk,
+} from 'src/entities/Task/taskThunks.ts';
 import {useNavigate} from 'react-router-dom';
+import { STAGES } from 'src/entities/Task/taskModel';
 
 // type FormValues = {
 //     email: string;
@@ -18,11 +22,13 @@ export const CreateTeamPage = () => {
     const invitations = useAppSelector(state => state.team.invitations);
     const show = useAppSelector(state => state.team.show);
     const team = useAppSelector(state => state.team.teamInfo);
+    const stage = useAppSelector(state => state.tasks.currentStage);
 
     const [email, setEmail] = useState('');
 
     useEffect(() => {
         dispatch(getInvitationsThunk());
+        dispatch(getStageInfoThunk());
     }, []);
 
     const handleSubmit = () => {
@@ -36,6 +42,18 @@ export const CreateTeamPage = () => {
     if (!show)
         return (
             <div>Вы в команде, информация о команде находится в профиле</div>
+        );
+
+    if (stage === STAGES.ZERO || stage === STAGES.ONE)
+        return (
+            <div className={styles.wrapper}>
+                <div className={styles.container}>
+                    <div className={styles.header}>
+                        <div className={styles.taskTitle}>Ещё рано</div>
+                    </div>
+                </div>
+                <div className={styles.content}></div>
+            </div>
         );
 
     return (

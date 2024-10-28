@@ -114,3 +114,17 @@ $blood-color: #780606;
     align-items: center;
     justify-content: center;
 }
+
+.footer{
+    position: absolute;
+    bottom: 10px;
+    left: 40px;
+    font-size: 30px;
+
+    @media (max-width: 768px) {
+        position: unset;
+        left: unset;
+        bottom: unset;
+      font-size: 24px;
+    }
+}

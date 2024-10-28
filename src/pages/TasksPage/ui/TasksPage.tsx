@@ -98,6 +98,9 @@ export const TasksPage: FC<TasksPageProps> = () => {
                     )}
                 </div>
             </div>
+            <div className={styles.footer}>
+                По вопросам: <a href="https://t.me/RusMilitaryVessel">@RusMilitaryVessel</a>
+            </div>
         </div>
     );
 };
