@@ -41,10 +41,10 @@ export const TasksPage: FC<TasksPageProps> = () => {
                     Твои баллы: {user.content.points}
                 </p>
                 <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
-                {/* <button style={
+                <button style={
                     (stage == STAGES.ZERO || stage == STAGES.ONE) ?
                     {fontSize: '50px', display: 'none'}:
-                    {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button> */}
+                    {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
                 <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button>
             </div>
             <div className={styles.listOfTasks}>
