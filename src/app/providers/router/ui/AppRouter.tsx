@@ -42,7 +42,7 @@ export const AppRouter = () => {
                         </RequireNotAuth>
                     }
                 />
-                <Route path="/*" element={
+                {/* <Route path="/*" element={
                   <RequireNotAuth>
                     <Routes>
                         <Route index element={<TasksPage />} />
@@ -52,7 +52,15 @@ export const AppRouter = () => {
                         <Route path="/team" element={<CreateTeamPage />} />
                     </Routes>
                   </RequireNotAuth>
-                }></Route>
+                }></Route> */}
+
+                <Route path="/" element={<RequireAuth />}>
+                    <Route index element={<TasksPage />} />
+                    <Route path="task/:taskId" element={<TaskPage />} />
+                    <Route path="/news" element={<NewsPage />} />
+                    <Route path="/shop" element={<ShopPage />} />
+                    <Route path="/team" element={<CreateTeamPage />} />
+                </Route>
             </Routes>
         </Suspense>
     );
