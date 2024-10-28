@@ -22,7 +22,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const clientStage = useAppSelector(state => state.tasks.menuCurrentStage);
     const stage = useAppSelector(state => state.tasks.currentStage);
     const status = useAppSelector(state => state.tasks.status);
-    //const user = useAppSelector(state => state.user.user) as User;
+    const user = useAppSelector(state => state.user.user) as User;
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -37,9 +37,9 @@ export const TasksPage: FC<TasksPageProps> = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
-                {/* <p style={{fontSize: '50px'}}>
+                <p style={{fontSize: '50px'}}>
                     Твои баллы: {user.content.points}
-                </p> */}
+                </p>
                 <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
                 {/* <button style={
                     (stage == STAGES.ZERO || stage == STAGES.ONE) ?
