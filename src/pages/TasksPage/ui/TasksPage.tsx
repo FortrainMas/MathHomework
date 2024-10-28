@@ -22,7 +22,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const clientStage = useAppSelector(state => state.tasks.menuCurrentStage);
     const stage = useAppSelector(state => state.tasks.currentStage);
     const status = useAppSelector(state => state.tasks.status);
-    const user = useAppSelector(state => state.user.user) as User;
+    //const user = useAppSelector(state => state.user.user) as User;
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -37,14 +37,14 @@ export const TasksPage: FC<TasksPageProps> = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
-                <p style={{fontSize: '50px'}}>
+                {/* <p style={{fontSize: '50px'}}>
                     Твои баллы: {user.content.points}
-                </p>
+                </p> */}
                 <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
-                <button style={
+                {/* <button style={
                     (stage == STAGES.ZERO || stage == STAGES.ONE) ?
                     {fontSize: '50px', display: 'none'}:
-                    {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
+                    {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button> */}
                 <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button>
             </div>
             <div className={styles.listOfTasks}>
@@ -64,10 +64,6 @@ export const TasksPage: FC<TasksPageProps> = () => {
                             unlocked={
                                 stage === STAGES.ONE || stage === STAGES.TWO
                             }
-                        />
-                        <StageCounter
-                            stage={CLIENT_STAGES.TWO}
-                            unlocked={stage === STAGES.TWO}
                         />
                         <StageCounter
                             stage={CLIENT_STAGES.TWO}
