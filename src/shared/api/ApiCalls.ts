@@ -4,8 +4,8 @@ import {getToken} from './Cookie';
 import {LoginData, RegisterData, Token} from 'src/entities/User/userModel.ts';
 
 const createApiCall: (restPath: string) => string = (restPath: string) => {
-    return `http://localhost:3000${restPath}`;   
-    //return `http://83.166.235.246:8080/api/v1${restPath}`;
+    //return `http://localhost:3000${restPath}`;   
+    return `http://83.166.235.246:8080/api/v1${restPath}`;
 
     //return `http://158.160.121.153:8080/api/v1${restPath}`;
 };
