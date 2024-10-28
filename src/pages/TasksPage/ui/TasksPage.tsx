@@ -30,7 +30,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     useEffect(() => {
         dispatch(getTasksThunk());
         dispatch(getStageInfoThunk());
-        dispatch(getUserInfoThunk());
+        //dispatch(getUserInfoThunk());
     }, []);
 
     // @ts-ignore
