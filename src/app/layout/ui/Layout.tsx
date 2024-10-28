@@ -11,14 +11,16 @@ interface LayoutProps {
 
 export const Layout: FC<LayoutProps> = ({}) => {
     return (
-        <div className={styles.wrapper}>
-            <Profile />
-            <div className={styles.content}>
-                <Sidebar />
-                <div className={styles.children}>
-                    <Outlet />
-                </div>
-            </div>
-        </div>
+        // <div className={styles.wrapper}>
+        //     <Profile />
+        //     <div className={styles.content}>
+        //         <Sidebar />
+        //         <div className={styles.children}>
+        //         <Outlet />
+        //         </div>
+        //     </div>
+        // </div>
+
+    <Outlet />
     );
 };
