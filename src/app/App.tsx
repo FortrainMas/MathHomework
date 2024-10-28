@@ -21,7 +21,7 @@ function App() {
         } else dispatch(setStatus('idle'));
     }, []);
 
-    if (user && user.content.points < 6)
+    if (user && user.content.points < 6 && false)
         return (
             <div
                 style={{
