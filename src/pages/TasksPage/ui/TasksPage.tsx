@@ -10,6 +10,8 @@ import {Task as TaskComponent} from 'src/widgets/task';
 import {CLIENT_STAGES, STAGES, Task} from 'src/entities/Task/taskModel.ts';
 import {Loader} from 'src/shared/ui/Loader';
 import {useNavigate} from 'react-router-dom';
+import {User} from 'src/entities/User/userModel.ts';
+import { getUserInfoThunk } from 'src/entities/User/userThunks';
 
 interface TasksPageProps {
     className?: string;
@@ -20,6 +22,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const clientStage = useAppSelector(state => state.tasks.menuCurrentStage);
     const stage = useAppSelector(state => state.tasks.currentStage);
     const status = useAppSelector(state => state.tasks.status);
+    const user = useAppSelector(state => state.user.user) as User;
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -27,14 +30,21 @@ export const TasksPage: FC<TasksPageProps> = () => {
     useEffect(() => {
         dispatch(getTasksThunk());
         dispatch(getStageInfoThunk());
+        dispatch(getUserInfoThunk());
     }, []);
 
     // @ts-ignore
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
+                <p style={{fontSize: '50px'}}>
+                    Твои баллы: {user.content.points}
+                </p>
                 <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
-                <button style={{fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
+                <button style={
+                    (stage == STAGES.ZERO || stage == STAGES.ONE) ?
+                    {fontSize: '50px', display: 'none'}:
+                    {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
                 <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button>
             </div>
             <div className={styles.listOfTasks}>
@@ -54,6 +64,10 @@ export const TasksPage: FC<TasksPageProps> = () => {
                             unlocked={
                                 stage === STAGES.ONE || stage === STAGES.TWO
                             }
+                        />
+                        <StageCounter
+                            stage={CLIENT_STAGES.TWO}
+                            unlocked={stage === STAGES.TWO}
                         />
                         <StageCounter
                             stage={CLIENT_STAGES.TWO}

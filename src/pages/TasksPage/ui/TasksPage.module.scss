@@ -7,7 +7,7 @@ $blood-color: #780606;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    button{
+    button, div{
         min-width: 250px;
         max-width: 400px;
         width: 100%;
@@ -17,10 +17,6 @@ $blood-color: #780606;
         border: 2px solid $blood-color;
         padding: 10px;
         cursor: pointer;
-    }
-    
-    :nth-child(2){
-        margin-top: 20px;
         margin-bottom: 20px;
     }
 
@@ -28,7 +24,7 @@ $blood-color: #780606;
       flex-direction: row;
       align-items: flex-start;
 
-        button{
+        button, div{
             width: 100%;
             min-width: unset;
             background-color: #fff;
@@ -38,10 +34,6 @@ $blood-color: #780606;
             padding: 5px;
             font-size: 25px !important;
             cursor: pointer;
-        }
-
-
-        :nth-child(2){
             margin: 0px;
         }
     }
