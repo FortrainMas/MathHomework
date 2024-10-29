@@ -1,5 +1,5 @@
 import styles from './TasksPage.module.scss';
-import {FC, useEffect} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {StageCounter} from 'src/widgets/stageCounter/ui/StageCounter.jsx';
 import {useAppDispatch, useAppSelector} from 'src/shared/utils/hooks/redux.ts';
 import {
@@ -23,15 +23,41 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const stage = useAppSelector(state => state.tasks.currentStage);
     const status = useAppSelector(state => state.tasks.status);
     const user = useAppSelector(state => state.user.user) as User;
+    const targetDate = useAppSelector(state => state.tasks.stageEndDate);
 
+
+    const [countdown, setCountdown] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      });
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(getTasksThunk());
         dispatch(getStageInfoThunk());
-        //dispatch(getUserInfoThunk());
-    }, []);
+        
+        const intervalId = setInterval(() => {
+          const now = new Date();
+          const target = new Date(targetDate);
+          const diff = target.getTime() - now.getTime(); 
+
+          if (diff > 0) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+            setCountdown({ days, hours, minutes, seconds });
+          } else {
+            clearInterval(intervalId); 
+          }
+        }, 1000);
+    
+        return () => clearInterval(intervalId);
+    }, [targetDate]);
 
     // @ts-ignore
     return (
@@ -56,6 +82,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
             <div className={styles.listOfTasks}>
                 <div className={styles.header}>
                     <p className={styles.switchText}>Выбери этап</p>
+                    <p className={styles.switchText} style={{fontSize: '20px'}}>До конца этапа: {countdown.days} days {countdown.hours} hours {countdown.minutes} minutes {countdown.seconds} seconds</p>
                     <div className={styles.stageSwitcherOptions}>
                         <StageCounter
                             stage={CLIENT_STAGES.ZERO}

@@ -9,7 +9,7 @@ const FormattedMessage: React.FC<{children: string}> = ({children}) => {
             style={{
                 maxWidth: '100%',
                 whiteSpace: "pre-wrap", 
-                lineHeight: '1.5em',
+                lineHeight: '40px',
             }}
         />
     );
