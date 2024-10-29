@@ -1,9 +1,13 @@
+import { AxiosError } from 'axios';
 import styles from './New.module.scss';
-import {FC, useEffect} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import { resetNew } from 'src/entities/News/newsSlice';
 import { getNewByIdThunk } from 'src/entities/News/newsThunks';
+import { getNew, getNews } from 'src/shared/api/ApiCalls';
+import { getErrorMessage } from 'src/shared/utils/api';
 import { useAppDispatch, useAppSelector } from 'src/shared/utils/hooks/redux';
+import { BackendError } from 'src/app/types/global';
 
 interface NewProps {
     header: string;
@@ -11,17 +15,48 @@ interface NewProps {
     id: number;
 }
 
-export const New: FC<NewProps> = ({header, id}) => {
-    const newItem = useAppSelector(state => state.news.currentNew);
+type NewsDetail = {
+    details: {
+        id: number;
+        publicationTime: string;
+        shortText: string;
+        title: string;
+    };
+    text: string;
+};
 
-    const dispatch = useAppDispatch();
+export const New: FC<NewProps> = ({header, id}) => {
+    const [newsDetail, setNewsDetail] = useState<NewsDetail | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        dispatch(getNewByIdThunk(id));
-        return () => {
-            dispatch(resetNew());
+        const fetchNewsDetail = async () => {
+            try {
+                const res = await getNew(id);
+                setNewsDetail(res.data.content);
+            } catch (e: unknown) {
+                const errorMessage = getErrorMessage(e as AxiosError<BackendError>);
+                setError(errorMessage);
+            } finally {
+                setLoading(false);
+            }
         };
-    }, []);
+
+        fetchNewsDetail();
+    }, [id]);
+
+
+    if(loading || error){
+        return(<div className={styles.new}>
+            <div className={styles.header}>
+                {header}
+            </div>
+            <div className={styles.main}>
+                Грузим новость
+            </div>
+        </div>);
+    }
 
     return (
         <div className={styles.new}>
@@ -29,7 +64,7 @@ export const New: FC<NewProps> = ({header, id}) => {
                 {header}
             </div>
             <div className={styles.main}>
-                {newItem?.text}
+                {newsDetail?.text}
             </div>
         </div>
     );
