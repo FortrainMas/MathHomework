@@ -46,8 +46,21 @@ body {
 }
 
 button{
-  line-height: 70px !important;
+  line-height: 35px !important;
 }
+input{
+  line-height: 35px !important;
+
+  ::placeholder{
+    line-height: 35px !important;
+  }
+}
+
+p{
+  line-height: 30px !important;
+}
+
+
 
 * {
   font-family: 'PT mono', serif;
