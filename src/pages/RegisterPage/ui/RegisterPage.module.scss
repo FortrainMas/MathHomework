@@ -60,6 +60,7 @@ $blood-color: #780606;
   margin-right: 30px;
   color: $blood-color;
   font-size: 48px;
+  line-height: 70px;
   width: 100%;
   max-width: 348px;
   padding: 30px;
@@ -86,4 +87,10 @@ $blood-color: #780606;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  line-height: 30px;
+}
+
+input::placeholder {
+  color: $blood-color !important;
+  line-height: 70px;
 }

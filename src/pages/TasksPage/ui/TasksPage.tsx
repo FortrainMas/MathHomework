@@ -37,15 +37,21 @@ export const TasksPage: FC<TasksPageProps> = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
-                <p style={{fontSize: '50px'}}>
-                    Твои баллы: {user.content.points}
-                </p>
-                <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
-                <button style={
-                    (stage == STAGES.ZERO || stage == STAGES.ONE) ?
-                    {fontSize: '50px', display: 'none'}:
-                    {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
-                <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button>
+                <div className={styles.userBlock}>
+                    <h2>{user.content.userName.username}</h2>
+                    <div className={styles.ballyandteam}>
+                        <p>Баллы: {user.content.points}</p>
+                        <p>Команда: нет пока команд</p>
+                    </div>
+                </div>
+                <div className={styles.containerButtons}>
+                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
+                    <button style={
+                        (stage == STAGES.ZERO || stage == STAGES.ONE) ?
+                        {fontSize: '50px', display: 'none'}:
+                        {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
+                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button>
+                </div>
             </div>
             <div className={styles.listOfTasks}>
                 <div className={styles.header}>

@@ -40,6 +40,7 @@ $blood-color: #780606;
   outline: none;
   cursor: pointer;
   padding: 4px;
+  line-height: 30px;
   
   font-family: 'Antique';
   text-decoration: none;
@@ -53,6 +54,7 @@ $blood-color: #780606;
   margin-right: 30px;
   color: $blood-color;
   font-size: 48px;
+  line-height: 70px;
   max-width: 450px;
   width: 100%;
   padding: 30px;
@@ -71,4 +73,10 @@ $blood-color: #780606;
   font-size: 25px;
   font-family: 'Antique';
   margin: 0 20px 0 20px;
+}
+
+
+input::placeholder {
+  color: $blood-color !important;
+  line-height: 70px;
 }

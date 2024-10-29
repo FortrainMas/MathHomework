@@ -13,6 +13,7 @@ $blood-color: #780606;
   max-width: 348px;
   height: 55px;
   outline:none;
+  line-height: 70px;
 
   @media (max-width: 768px) {
     font-size: 24px;
@@ -60,7 +61,7 @@ $blood-color: #780606;
   margin-right: 30px;
   color: $blood-color;
   font-size: 48px;
-  width: 450px;
+  width: 90vw;
   padding: 30px;
   border-radius: 11px;
   border:$blood-color solid 3px;
@@ -85,8 +86,10 @@ $blood-color: #780606;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  line-height: 30px;
 }
 
 input::placeholder {
   color: $blood-color !important;
+  line-height: 70px;
 }
