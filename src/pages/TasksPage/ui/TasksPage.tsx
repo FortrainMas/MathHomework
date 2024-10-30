@@ -72,17 +72,18 @@ export const TasksPage: FC<TasksPageProps> = () => {
                 </div>
                 <div className={styles.containerButtons}>
                     <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
+                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/rating')}>рейтинг</button>
                     <button style={
                         (stage == STAGES.ZERO || stage == STAGES.ONE) ?
                         {fontSize: '50px', display: 'none'}:
                         {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
-                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>комманда</button>
+                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>команда</button>
                 </div>
             </div>
             <div className={styles.listOfTasks}>
                 <div className={styles.header}>
                     <p className={styles.switchText}>Выбери этап</p>
-                    <p className={styles.switchText} style={{fontSize: '20px'}}>До конца этапа: {countdown.days} days {countdown.hours} hours {countdown.minutes} minutes {countdown.seconds} seconds</p>
+                    <p className={styles.switchText} style={{fontSize: '15px'}}>До конца этапа: {countdown.days} days {countdown.hours} hours {countdown.minutes} minutes {countdown.seconds} seconds</p>
                     <div className={styles.stageSwitcherOptions}>
                         <StageCounter
                             stage={CLIENT_STAGES.ZERO}
@@ -132,7 +133,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
                 </div>
             </div>
             <div className={styles.footer}>
-                По вопросам: <a href="https://t.me/RusMilitaryVessel">@RusMilitaryVessel</a>
+                По вопросам: <a href="https://t.me/filimonqqq">@filimonqqq</a>
             </div>
         </div>
     );

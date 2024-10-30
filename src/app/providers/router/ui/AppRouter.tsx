@@ -13,6 +13,7 @@ import {CreateTeamPage} from 'src/pages/createTeamPage';
 import {NewPage} from 'src/pages/newPage/ui/NewPage.tsx';
 import {Loader} from 'src/shared/ui/Loader';
 import {ShopPage} from 'src/pages/shopPage/ui/ShopPage.tsx';
+import { RatingsPage } from 'src/pages/RatingsPage/ui/RatingsPage';
 
 export const AppRouter = () => {
     return (
@@ -60,6 +61,7 @@ export const AppRouter = () => {
                     <Route path="/news" element={<NewsPage />} />
                     <Route path="/shop" element={<ShopPage />} />
                     <Route path="/team" element={<CreateTeamPage />} />
+                    <Route path="/rating" element={<RatingsPage />} />
                 </Route>
             </Routes>
         </Suspense>

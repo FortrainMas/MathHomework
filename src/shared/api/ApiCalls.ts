@@ -93,11 +93,18 @@ export const editTeamInfo = (data: string) =>
 export const getTeamInvitations = () =>
     axios.get(createApiCall('/team/invitations/all'), getUserTokenHeader());
 
-export const getUsersRating = (type: string) =>
+export const getTeamsRating = (type: string) =>
     axios.get(
         createApiCall(`/statistic/rating/teams?sortingType=${type}`),
         getUserTokenHeader()
     );
+
+export const getUsersRating = (type: string) =>
+    axios.get(
+        createApiCall(`/statistic/rating/users?sortingType=${type}`),
+        getUserTokenHeader()
+    );
+
 
 export const sendAnswer = (data: {answer: string; taskId: number}) =>
     axios.post(createApiCall('/tasks/check'), data, getUserTokenHeader());

@@ -64,7 +64,7 @@ export const New: FC<NewProps> = ({header, id}) => {
                 {header}
             </div>
             <div className={styles.main}>
-                {newsDetail?.text}
+                <p>{newsDetail?.text}</p>
             </div>
         </div>
     );
