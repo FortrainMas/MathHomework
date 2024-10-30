@@ -12,6 +12,7 @@ import {Loader} from 'src/shared/ui/Loader';
 import {useNavigate} from 'react-router-dom';
 import {User} from 'src/entities/User/userModel.ts';
 import { getUserInfoThunk } from 'src/entities/User/userThunks';
+import { getUsersRatingThunks } from 'src/entities/Rating/ratingThunks';
 
 interface TasksPageProps {
     className?: string;
@@ -24,6 +25,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const status = useAppSelector(state => state.tasks.status);
     const user = useAppSelector(state => state.user.user) as User;
     const targetDate = useAppSelector(state => state.tasks.stageEndDate);
+    const rating = useAppSelector(state => state.rating.rating);
 
 
     const [countdown, setCountdown] = useState({
@@ -38,6 +40,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     useEffect(() => {
         dispatch(getTasksThunk());
         dispatch(getStageInfoThunk());
+        dispatch(getUsersRatingThunks());
         
         const intervalId = setInterval(() => {
           const now = new Date();
@@ -71,19 +74,35 @@ export const TasksPage: FC<TasksPageProps> = () => {
                     </div>
                 </div>
                 <div className={styles.containerButtons}>
-                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/news')}>новости</button>
-                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/rating')}>рейтинг</button>
+                    <button onClick={()=>navigate('/news')}>новости</button>
+                    <button className={styles.ratingButton} onClick={()=>navigate('/rating')}>рейтинг</button>
                     <button style={
                         (stage == STAGES.ZERO || stage == STAGES.ONE) ?
-                        {fontSize: '50px', display: 'none'}:
-                        {fontSize: '50px'}} onClick={()=>navigate('/shop')}>магазин</button>
-                    <button style={{fontSize: '50px'}} onClick={()=>navigate('/team')}>команда</button>
+                        {display: 'none'}:
+                        {}} onClick={()=>navigate('/shop')}>магазин</button>
+                    <button onClick={()=>navigate('/team')}>команда</button>
+                </div>
+            </div>
+            <div className={styles.ratings}>
+                <div className={styles.header}>
+                    <p className={styles.switchText}>Рейтинг</p>
+                </div>
+                <div className={styles.taskBorder}></div>
+                <div className={styles.scroll}>
+                    {!rating.length && <Loader width={60} height={60} />}
+                    {rating &&
+                        rating.map((item, key) => (
+                            <div className={styles.ratingItem} key={key}>
+                                <h1>{item.name}</h1>
+                                <h1>{item.score}</h1>
+                            </div>
+                            ))}
                 </div>
             </div>
             <div className={styles.listOfTasks}>
                 <div className={styles.header}>
                     <p className={styles.switchText}>Выбери этап</p>
-                    <p className={styles.switchText} style={{fontSize: '15px'}}>До конца этапа: {countdown.days} days {countdown.hours} hours {countdown.minutes} minutes {countdown.seconds} seconds</p>
+                    <p className={`${styles.switchText} ${styles.countdown}`}>До конца этапа: {countdown.days} days {countdown.hours} hours {countdown.minutes} minutes {countdown.seconds} seconds</p>
                     <div className={styles.stageSwitcherOptions}>
                         <StageCounter
                             stage={CLIENT_STAGES.ZERO}
@@ -127,7 +146,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
                     {!tasks[clientStage]?.length && (
                         <div className={styles.locked}>
                             Заданий нет, мы вам перезвоним👋
-                            <br />
+                        <br />
                         </div>
                     )}
                 </div>

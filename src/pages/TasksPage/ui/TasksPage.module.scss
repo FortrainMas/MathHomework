@@ -2,6 +2,7 @@ $blood-color: #780606;
 
 
 .container{
+    max-width: 500px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -14,8 +15,8 @@ $blood-color: #780606;
     flex-direction: column;
     align-items: left;
     justify-content: space-around;
-    width: 350px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 350px;
     height: 150px;
     padding: 20px;
     background-color: #fff;
@@ -35,6 +36,11 @@ $blood-color: #780606;
         flex-direction: column;
         font-size: 20px;
     }
+
+}
+
+.ratingButton{
+    display: none;
 }
 
 .containerButtons{
@@ -43,7 +49,7 @@ $blood-color: #780606;
     width: 350px;
     
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
       flex-direction: row;
       width: 100%;
     }
@@ -58,28 +64,22 @@ $blood-color: #780606;
         padding: 0px;
         cursor: pointer;
         margin-bottom: 20px;
+        font-size: 25px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
 
         button{
-            width: 100%;
             height: 40px;
             min-width: unset;
-            background-color: #fff;
-            color: $blood-color;
-            border-radius: 11px;
-            border: 2px solid $blood-color;
             padding: 5px;
-            font-size: 25px !important;
-            cursor: pointer;
+            font-size: 25px;
             margin: 0px;
         }
     }
 }
 
 .wrapper {
-    min-width: 100%;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -87,26 +87,24 @@ $blood-color: #780606;
 
     background: url("./src/shared/assets/background/dvor.jpg")  no-repeat center center/cover;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
       flex-direction: column;
       align-items: flex-start;
     }
 }
 
 
-.listOfTasks{
+.listOfTasks, .ratings{
     border-radius: 11px;
     border:rgb(255, 255, 255) solid 2px;
     background-color: $blood-color;
     background-color: #78060699;
-    max-width: 638px;
-    width: 100%;
+    min-width: 450px;
     height: 100%;
     min-height: 400px;
 }
 
 .header{
-    height: 140px;
     margin: 10px;
     margin-left: 20px;
     display: flex;
@@ -160,10 +158,134 @@ $blood-color: #780606;
     left: 40px;
     font-size: 30px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
         position: unset;
         left: unset;
         bottom: unset;
       font-size: 24px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// РЕЙТИНГИ БЛЯДЬ
+.ratings{
+    .scroll{
+        width: 100%;
+        height: 92% !important;
+        overflow-y: scroll;
+    }
+}
+
+.ratingItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    color: $blood-color;
+    width: 90%;
+    border:rgb(255, 255, 255) solid 3px;
+    border-radius: 11px;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    background-color: rgba(244, 243, 241, 0.553);
+
+    h1{
+        font-size: 15px;
+    }
+}
+
+
+.countdown{
+    font-size: 15px;
+}
+
+.ratingButton{
+    display: none;
+}
+
+//Mobile
+@media (max-width: 1200px) {
+    .container{
+        min-width: 100%;
+    }
+
+    .ratings, .listOfTasks{
+        box-sizing: border-box;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .stageText{
+        font-size: 10px;
+    }
+
+    .ratings{
+        display: none;
+    }
+
+    .locked{
+        font-size: 20px;
+    }
+
+    .ratings, .listOfTasks{
+        min-height: 300px;
+
+        .header{
+            font-size: 24px;
+        }
+
+        .switchText{
+            font-size: 20px;
+        }
+        .countdown{
+            font-size: 12px;
+            line-height: 16px !important;
+            margin-bottom: 10px;
+        }
+    }
+
+
+    .userBlock h2{
+        font-size: 32px;
+    }
+    .ballyandteam p{
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .userBlock{
+        height: 140px;
+        margin-bottom: 5px;
+    }
+    .container{
+        height: 200px;
+    }
+
+    .ratingButton{
+        display: unset;
+    }
+
+    .containerButtons button{
+        font-size: 14px;
+        padding: unset;
     }
 }

@@ -1,1 +1,1 @@
-export {NewsPage} from './ui/NewsPage.tsx';
+export {RatingsPage} from './ui/RatingsPage.tsx';
