@@ -13,6 +13,7 @@ import {useNavigate} from 'react-router-dom';
 import {User} from 'src/entities/User/userModel.ts';
 import { getUserInfoThunk } from 'src/entities/User/userThunks';
 import { getUsersRatingThunks } from 'src/entities/Rating/ratingThunks';
+import { getNewsThunk } from 'src/entities/News/newsThunks';
 
 interface TasksPageProps {
     className?: string;
@@ -26,6 +27,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const user = useAppSelector(state => state.user.user) as User;
     const targetDate = useAppSelector(state => state.tasks.stageEndDate);
     const rating = useAppSelector(state => state.rating.rating);
+    const news = useAppSelector(state => state.news.news);
 
 
     const [countdown, setCountdown] = useState({
@@ -41,6 +43,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
         dispatch(getTasksThunk());
         dispatch(getStageInfoThunk());
         dispatch(getUsersRatingThunks());
+        dispatch(getNewsThunk());
         
         const intervalId = setInterval(() => {
           const now = new Date();
@@ -74,7 +77,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
                     </div>
                 </div>
                 <div className={styles.containerButtons}>
-                    <button onClick={()=>navigate('/news')}>новости</button>
+                    <button onClick={()=>navigate('/news')}>новости({news.length})</button>
                     <button className={styles.ratingButton} onClick={()=>navigate('/rating')}>рейтинг</button>
                     <button style={
                         (stage == STAGES.ZERO || stage == STAGES.ONE) ?
