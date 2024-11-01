@@ -64,7 +64,7 @@ export const CreateTeamPage = () => {
             <div className={styles.wrapper}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <div className={styles.taskTitle}>Объединиться в комманду</div>
+                    <div className={styles.taskTitle}>Объединиться в команду</div>
                 </div>
                 <div className={styles.border}></div>
                 <div className={styles.content} style={{height: 'calc(100vh - 100px)'}}>
