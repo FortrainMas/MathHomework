@@ -4,6 +4,7 @@ $blood-color: #780606;
   display: flex;
   align-items: center;
   border:rgb(255, 255, 255) solid 2px;
+  background-color: #fff;
   border-radius: 11px;
   padding: calc(2%);
   margin: 10px;
@@ -15,14 +16,14 @@ $blood-color: #780606;
   word-break: break-all;
 }
 .nick{
-  width: 35%;
+  width: 30%;
   margin: 10px;
   color: $blood-color;
 }
 .balance{
   margin: 10px;
   margin-left: 50px;
-  width: 15%;
+  width: 10%;
   color: $blood-color;
 }
 .email{
@@ -31,7 +32,7 @@ $blood-color: #780606;
   // margin-right: 20px;
 }
 .butt{
-  width: 10%;
+  width: 15%;
   padding: 3px;
   margin: 4px;
   align-self: center;
