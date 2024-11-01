@@ -21,13 +21,13 @@ export const PotentialTeammate = ({
                 }>
                 Беру
             </button>
-            <button
+            {/* <button
                 className={styles.butt}
                 onClick={() =>
                     dispatch(acceptInviteThunk({id, action: 'CANCEL'}))
                 }>
                 Отклоняю
-            </button>
+            </button> */}
         </div>
     );
 };
