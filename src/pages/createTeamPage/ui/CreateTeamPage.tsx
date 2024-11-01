@@ -99,17 +99,6 @@ export const CreateTeamPage = () => {
         </div>
         );
 
-    if (stage === STAGES.ZERO || stage === STAGES.ONE)
-        return (
-            <div className={styles.wrapper}>
-                <div className={styles.container}>
-                    <div className={styles.header}>
-                        <div className={styles.taskTitle}>Ещё рано</div>
-                    </div>
-                </div>
-                <div className={styles.content}></div>
-            </div>
-        );
 
     return (
         <div className={styles.wrapper}>
