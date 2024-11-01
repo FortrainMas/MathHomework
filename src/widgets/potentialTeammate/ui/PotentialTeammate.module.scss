@@ -1,3 +1,5 @@
+$blood-color: #780606;
+
 .cunt{
   display: flex;
   align-items: center;
@@ -15,15 +17,17 @@
 .nick{
   width: 35%;
   margin: 10px;
-
+  color: $blood-color;
 }
 .balance{
   margin: 10px;
   margin-left: 50px;
   width: 15%;
+  color: $blood-color;
 }
 .email{
   width: 40%;
+  color: $blood-color;
   // margin-right: 20px;
 }
 .butt{
@@ -31,12 +35,11 @@
   padding: 3px;
   margin: 4px;
   align-self: center;
-  background-color: rgba(255, 199 , 0, 0.1);
-  border:rgb(255, 255, 255) solid 2px;
+  background-color: #fff;
+  border:$blood-color solid 2px;
   border-radius: 11px;
-  color: #fff;
+  color: $blood-color;
   height: 70%;
-  font-family: 'pixy';
   font-size: 25px;
   cursor: pointer;
 }

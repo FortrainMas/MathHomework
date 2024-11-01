@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from 'src/shared/utils/hooks/redux.ts';
 import {ChangeEvent, useEffect, useState} from 'react';
 import {
     getInvitationsThunk,
+    getTeamInfoThunk,
     inviteUserThunk,
 } from 'src/entities/Team/teamThunks.ts';
 import {
@@ -21,7 +22,25 @@ export const CreateTeamPage = () => {
 
     const invitations = useAppSelector(state => state.team.invitations);
     const show = useAppSelector(state => state.team.show);
+    
     const team = useAppSelector(state => state.team.teamInfo);
+    // const team = {
+    //     team_name: 'Team 1',
+    //     members: [
+    //         {
+    //             email: "i.shebanov@gmail.com",
+    //             faculty: "ITMO",
+    //             messenger_link: "https://m.me/username",
+    //             username: "i.shebanov",
+    //         },
+    //         {
+    //             email: "i.shebanov@gmail.com",
+    //             faculty: "ITMO",
+    //             messenger_link: "https://m.me/username",
+    //             username: "i.shebanov",
+    //         },
+    //     ]
+    // }
     const stage = useAppSelector(state => state.tasks.currentStage);
 
     const [email, setEmail] = useState('');
@@ -29,6 +48,7 @@ export const CreateTeamPage = () => {
     useEffect(() => {
         dispatch(getInvitationsThunk());
         dispatch(getStageInfoThunk());
+        dispatch(getTeamInfoThunk());
     }, []);
 
     const handleSubmit = () => {
@@ -37,11 +57,46 @@ export const CreateTeamPage = () => {
 
     const navigate = useNavigate();
 
-    if (team) navigate('/');
+    // if (team) navigate('/');
 
-    if (!show)
+    if (team)
         return (
-            <div>Вы в команде, информация о команде находится в профиле</div>
+            <div className={styles.wrapper}>
+            <div className={styles.container}>
+                <div className={styles.header}>
+                    <div className={styles.taskTitle}>Объединиться в комманду</div>
+                </div>
+                <div className={styles.border}></div>
+                <div className={styles.content} style={{height: 'calc(100vh - 100px)'}}>
+                    <div className={styles.cuntFull}>
+                        <div className={styles.subheader}>
+                            <div className={styles.huetavsubheadere}>Список участников {team?.team_name}</div>
+                        </div>
+                        <div className={styles.membersofteam}>
+                            {
+                                team?.members.map((member) => (
+                                    <div className={styles.member}>
+                                        <p className={styles.teammate}>
+                                            Ник: {member.username}
+                                        </p>
+                                        <p className={styles.teammate}>
+                                            Факультет: {member.faculty} 
+                                        </p>
+                                        <p className={styles.teammate}>
+                                            Messenger: {member.messenger_link}
+                                        </p>
+                                        
+                                        <p className={styles.teammate}>
+                                            Email: {member.email}
+                                        </p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         );
 
     if (stage === STAGES.ZERO || stage === STAGES.ONE)

@@ -55,17 +55,32 @@ height: calc(100vh);
   }
 }
 .huetavsubheadere{
-    color: #fff;
-    font-size: 2.1rem;
+  color: #fff;
+  font-size: 2.4rem;
+  font-family: "Antique";
+  
+  text-shadow: none !important;
+  
+a {
+  text-shadow: none !important;
+  cursor: pointer !important;
+}
+}
+
+.teammate{
+    color: $blood-color;
+    font-size: 1.4rem;
     font-family: "Antique";
     
     text-shadow: none !important;
     
   a {
     text-shadow: none !important;
-    cursor: text !important;
+    cursor: pointer !important;
   }
 }
+
+
 
 
 .border{
@@ -98,20 +113,19 @@ height: calc(100vh);
 
     ::-ms-input-placeholder{
         margin-bottom: 5px;
-        font-size: 32px !important;
+        font-size: 32px;
         color: $blood-color !important;
     }
 }
 .email::placeholder {
     margin-bottom: 5px;
-    font-size: 32px !important;
+    font-size: 32px;
     color: $blood-color !important;
 }
 
 
 *::placeholder {
     margin-bottom: 5px;
-    font-size: 32px !important;
     color: $blood-color;
 }
 
@@ -122,7 +136,8 @@ height: calc(100vh);
 .send {
     font-size: 24px;
     height: 40px;
-    width: 250px;
+    width: 300px;
+    max-width: 100%;
     border: 1px solid $blood-color;
     border-radius: 11px;
     color: $blood-color;
@@ -148,11 +163,42 @@ height: calc(100vh);
     border-top: 0;
 
 }
+.membersofteam{
+  flex-direction: column !important;
+}
 
-.cunt{
+
+.member{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: calc(100% - 0px);
+    height: 100%;
+    border-radius: 11px;
+    overflow-y: scroll;
+    
+
+    background-color: #fff;
+    border: 2px solid $blood-color;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+
+      p{
+        font-size: 12px;
+      }
+    }
+}
+
+
+.cunt, .membersofteam{
     padding: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
  
     @media (max-width: 768px) {
       flex-direction: column;
@@ -160,9 +206,15 @@ height: calc(100vh);
 
       .send{
         margin-top: 5px;
+        font-size: 16px;
       }
       .email{
+        width: 100%;
+        font-size: 16px;
 
+        ::placeholder{
+          font-size: 16px !important;
+        }
       }
     }
 }
