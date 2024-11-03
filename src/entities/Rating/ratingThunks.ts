@@ -14,9 +14,7 @@ export const getTeamsRatingThunks = createAsyncThunk<
         const res: AxiosResponse<{rating: Rating[]}> =
             await getTeamsRating('DESC');
 
-        const res2: any = await getUsersRating('DESC');
-
-        console.log("FUCK", res2.data.rating)
+        console.log("Blya idi nahuy", res.data.rating)
         return res.data.rating;
     } catch (e: unknown | AxiosError<BackendError>) {
         return rejectWithValue(getErrorMessage(e));

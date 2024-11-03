@@ -3,7 +3,7 @@ import {New} from 'src/widgets/new/ui/New.tsx';
 import {useAppDispatch, useAppSelector} from 'src/shared/utils/hooks/redux.ts';
 import {useEffect} from 'react';
 import {getNewsThunk} from 'src/entities/News/newsThunks.ts';
-import { getUsersRatingThunks } from 'src/entities/Rating/ratingThunks';
+import { getTeamsRatingThunks } from 'src/entities/Rating/ratingThunks';
 import { Loader } from 'src/shared/ui/Loader';
 
 export const RatingsPage = () => {
@@ -12,7 +12,7 @@ export const RatingsPage = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(getUsersRatingThunks());
+        dispatch(getTeamsRatingThunks());
     }, []);
     console.log(rating)
 

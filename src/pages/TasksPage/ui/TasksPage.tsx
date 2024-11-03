@@ -12,7 +12,7 @@ import {Loader} from 'src/shared/ui/Loader';
 import {useNavigate} from 'react-router-dom';
 import {User} from 'src/entities/User/userModel.ts';
 import { getUserInfoThunk } from 'src/entities/User/userThunks';
-import { getUsersRatingThunks } from 'src/entities/Rating/ratingThunks';
+import { getTeamsRatingThunks, getUsersRatingThunks } from 'src/entities/Rating/ratingThunks';
 import { getNewsThunk } from 'src/entities/News/newsThunks';
 
 interface TasksPageProps {
@@ -28,7 +28,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const targetDate = useAppSelector(state => state.tasks.stageEndDate);
     const rating = useAppSelector(state => state.rating.rating);
     const news = useAppSelector(state => state.news.news);
-
+    console.log(rating)
 
     const [countdown, setCountdown] = useState({
         days: 0,
@@ -41,8 +41,8 @@ export const TasksPage: FC<TasksPageProps> = () => {
 
     useEffect(() => {
         dispatch(getTasksThunk());
+        dispatch(getTeamsRatingThunks())
         dispatch(getStageInfoThunk());
-        dispatch(getUsersRatingThunks());
         dispatch(getNewsThunk());
         
         const intervalId = setInterval(() => {
