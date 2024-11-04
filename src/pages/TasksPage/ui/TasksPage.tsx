@@ -14,6 +14,7 @@ import {User} from 'src/entities/User/userModel.ts';
 import { getUserInfoThunk } from 'src/entities/User/userThunks';
 import { getTeamsRatingThunks, getUsersRatingThunks } from 'src/entities/Rating/ratingThunks';
 import { getNewsThunk } from 'src/entities/News/newsThunks';
+import { getTeamInfoThunk } from 'src/entities/Team/teamThunks';
 
 interface TasksPageProps {
     className?: string;
@@ -28,6 +29,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
     const targetDate = useAppSelector(state => state.tasks.stageEndDate);
     const rating = useAppSelector(state => state.rating.rating);
     const news = useAppSelector(state => state.news.news);
+    const team = useAppSelector(state => state.team.teamInfo);
     console.log(rating)
 
     const [countdown, setCountdown] = useState({
@@ -44,6 +46,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
         dispatch(getTeamsRatingThunks())
         dispatch(getStageInfoThunk());
         dispatch(getNewsThunk());
+        dispatch(getTeamInfoThunk());
         
         const intervalId = setInterval(() => {
           const now = new Date();
@@ -73,7 +76,7 @@ export const TasksPage: FC<TasksPageProps> = () => {
                     <h2>{user.content.userName.username}</h2>
                     <div className={styles.ballyandteam}>
                         <p>Баллы: {user.content.points}</p>
-                        <p>Команда: нет пока команд</p>
+                        <p>Команда: {team?.team_name}</p>
                     </div>
                 </div>
                 <div className={styles.containerButtons}>
